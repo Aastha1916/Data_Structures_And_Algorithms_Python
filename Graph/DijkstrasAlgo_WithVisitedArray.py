@@ -1,4 +1,5 @@
-#TIME COMPLEXITY : O(V+ELOGV)
+# TIME COMPLEXITY : O(V+ELOGV) 
+# USING PRIORITY QUEUE AND VISITED ARRAY
 from heapq import *
 
 edges = [[0,1,4],[0,3,5],[0,4,2],[1,2,4],[1,3,2],[2,3,2],[3,4,1]]
