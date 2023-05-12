@@ -1,3 +1,4 @@
+#TIME COMPLEXITY = O(V*E)
 def bellman_ford(edges,n):
     if n==1:
         return 0
