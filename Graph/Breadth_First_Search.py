@@ -1,26 +1,66 @@
-n= 5
-e =6
-source = 1
-edge = [[1,2], [1,4], [2,3], [2, 5], [4, 5], [3, 5]]
-adjlist = [[] for i in range(n+1)]
-for i in range(e):
-    adjlist[edge[i][0]].append(edge[i][1])
-    adjlist[edge[i][1]].append(edge[i][0])
+class bfs:
 
-d = [0]*(n+1)
-s = [0]*(n+1)
-q = [source]
-ans = [source]
-s[source] = 1
-while q:
-    x = q.pop(0)
-    l = adjlist[x]
-    for i in l:
-        if s[i] == 0:
-            s[i] = 1
-            d[i] = d[x] + 1
-            q.append(i)
-            ans.append(i)
+    def __init__(self,n,e,edge = [[1,2], [1,4], [2,3], [2, 5], [4, 5], [3, 5]]):
+        self.n = n
+        self.e = e
+        self.edge = edge
 
-print(d[1:])
-print(ans)
+    def traversal(self,src,graph):
+        queue = [src]
+        visited = [0]*(self.n+1)
+        visited[src] = 1
+        while queue:
+            node = queue.pop(0)
+            print(node,end=" ")
+            for adj in graph[node] :
+                if visited[adj] == 0:
+                    queue.append(adj)
+                    visited[adj] = 1
+    
+    def find_distance(self,src,graph):
+        queue = [src]
+        visited = [0]*(self.n+1)
+        visited[src] = 1
+        distance = [0]*(self.n+1)
+        while queue:
+            node = queue.pop(0)
+            
+            for adj in graph[node] :
+                if visited[adj] == 0:
+                    queue.append(adj)
+                    visited[adj] = 1
+                    distance[adj] += distance[node]+1
+        return distance
+
+    def undirected_adjList(self):
+        adj_list = [[] for _ in range(self.n+1)]
+        for u,v in self.edge:
+            adj_list[u].append(v)
+            adj_list[v].append(u)
+        return adj_list
+    
+    def directed_adjList(self):
+        adj_list = [[] for _ in range(self.n+1)]
+        for u,v in self.edge:
+            adj_list[u].append(v)
+        return adj_list
+
+        
+bfs_object = bfs(5,6)
+
+# For directed graph:
+directed_graph = bfs_object.directed_adjList()
+print(directed_graph)
+bfs_object.traversal(1,directed_graph)
+directed_graph_distance = bfs_object.find_distance(1,directed_graph)
+print("\n",directed_graph_distance[1:])
+
+# For undirected graph:
+undirected_graph = bfs_object.undirected_adjList()
+print(undirected_graph)
+bfs_object.traversal(1,undirected_graph)
+undirected_graph_distance = bfs_object.find_distance(1,undirected_graph)
+print("\n",undirected_graph_distance[1:])
+
+
+        
