@@ -4,21 +4,24 @@ There are 3 properties of hof(Higher Orer Function):
 2-> When a function return another function
 3-> When a function contains another function inside it
 
-A decorator is a callable which implements all the properties of HOF. Its purpose is to provide additional functionality.
+A decorator is a callable which implements all the properties of HOF. Its purpose is to provide 
+additional functionality.
 '''
 
 #HOF
-def newfun(fun):
-    def inner():
-        fun()
-        print("i am decorator fun")
-    return inner
+# def newfun(fun):
+#     print("inside newfun")
+#     def inner():
+#         print("inside inner")
+#         fun()
+#         print("i am decorator fun")
+#     return inner
 
-def normal():
-    print("i am normal function fun")
+# def normal():
+#     print("i am normal function fun")
 
-normal = newfun(normal)
-normal()
+# normal = newfun(normal)
+# normal()
 
 
 #HOF AS DECORATOR

@@ -3,14 +3,14 @@ class Base1:
     def __init__(self):  
         # the protected member  
         self._p = 78  
+        ## the private member
         self.__q = "Aastha"  
   
 # derived class  
 class Derived1(Base1):  
     def __init__(self): 
 
-        # now, we will call the constructor of Base class either by using the name of the base class 
-        # or using super keyword 
+        # now, we will call the constructor of Base class 
         # Base1.__init__(self)  
         super().__init__()
         print ("We will call the protected member of base class: ", self._p)  
@@ -33,10 +33,10 @@ obj_2 = Base1()
 # this can be accessed but it should not be done because of convention  
 print ("Access the protected member of obj_1: ", obj_1._p)  
   
-# here, we will access the protected variable outside  
+# here, we will access the protected variable outside the class
 print ("Access the protected member of obj_2: ", obj_2._p) 
 
-#calling encapsulated variable outside the class by creating object of that class
+#calling private encapsulated variable outside the class by creating object of that class
 print ("Access the private member of obj_2: ", obj_2._Base1__q)
 
 '''How to access encapsulated variable? 
