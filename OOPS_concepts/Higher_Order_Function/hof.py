@@ -1,5 +1,5 @@
 '''
-There are 3 properties of hof(Higher Orer Function):
+There are 3 properties of hof(Higher Order Function):
 1-> A function which take another function as parameter or argument
 2-> When a function return another function
 3-> When a function contains another function inside it
