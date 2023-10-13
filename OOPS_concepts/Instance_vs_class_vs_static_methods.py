@@ -11,9 +11,9 @@ class MyClass:
         return 'static method called'
 
 obj = MyClass()
-print(obj.method())
-print(MyClass.method())
-print(obj.classmethod())
-print(MyClass.classmethod())
-print(obj.staticmethod())
+# print(obj.method())
+print(MyClass.method(obj))
+# print(obj.classmethod())
+# print(MyClass.classmethod())
+# print(obj.staticmethod())
 print(MyClass.staticmethod())
